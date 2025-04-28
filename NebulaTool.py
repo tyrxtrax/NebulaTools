@@ -146,4 +146,11 @@ print("Thank you for using ", name, version)
 # This program is for educational purposes only.
 # Do not use this program for malicious purposes.
 # This program is not responsible for any damage caused by the use of this program.
-# Alll rights reserved.
+# Repeat the program after a countdown of 10 seconds
+while True:
+  print("\nRestarting the program in 10 seconds...")
+  for i in range(10, 0, -1):
+    print(f"Restarting in {i} seconds...", end="\r")
+    time.sleep(1)
+  os.system('cls' if os.name == 'nt' else 'clear')
+  exec(open(__file__).read())
