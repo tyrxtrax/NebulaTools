@@ -39,6 +39,7 @@ This program is for educational purposes only.
 !dcwd - Discord Webhook Delete
 !dcwi - Discord Webhook Info
 !dcws - Discord Webhook Spammer
+
       ''')
 option = input("Your choice:")
 # Option Discord Nitro Generator
