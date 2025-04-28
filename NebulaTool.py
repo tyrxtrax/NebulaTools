@@ -141,11 +141,6 @@ else:
   print("Invalid input. Please try again.")
 # End of the program
 print("Thank you for using ", name, version)
-## Tested on Python 3.13.3
-# Free to use, but not free to copy.
-# This program is for educational purposes only.
-# Do not use this program for malicious purposes.
-# This program is not responsible for any damage caused by the use of this program.
 # Repeat the program after a countdown of 10 seconds
 while True:
   print("\nRestarting the program in 10 seconds...")
