@@ -1,12 +1,31 @@
+# NebulaTest.py
+# A simple Discord Nitro Generator, Webhook Deleter, Webhook Info and Webhook Spammer
+# These tags are used to identify the purpose of the code and its functionality.
+# Not made by ai but by a human.
 import requests
 import random
 import string
 import threading
 import time
-# NebulaTest.py
+import os
 # Info (version + name)
 name = 'NebulaTest '
 version = 'vBETA 0.1'
+
+# Login screen
+username = input("Enter username: ")
+password = input("Enter password: ")
+# Check if the username and password are correct
+if username != "Member" or password != "Membership":
+  print("Invalid credentials. Access denied.")
+  exit()
+  # Add a 5-second countdown
+for i in range(5, 0, -1):
+  print(f"Continuing in {i} seconds...", end="\r")
+  time.sleep(1)
+
+# Clear the screen
+os.system('cls' if os.name == 'nt' else 'clear')
 # Startscreen
 print("Welcome to ", name, version)
 print('''
@@ -14,7 +33,7 @@ print('''
 This is a test version of the NebulaTest program.
 It is not recommended to use this program for malicious purposes.
 This program is for educational purposes only.
-      
+        
  
 !dcng - Discord Nitro Generator
 !dcwd - Discord Webhook Delete
