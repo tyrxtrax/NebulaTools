@@ -30,7 +30,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 print("Welcome to ", name, version)
 print('''
 
-This is a test version of the NebulaTest program.
+This is a test version of the NebulaTool program.
 It is not recommended to use this program for malicious purposes.
 This program is for educational purposes only.
         
