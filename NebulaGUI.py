@@ -132,3 +132,4 @@ ttk.Button(root, text="Discord Webhook Spammer", command=discord_webhook_spammer
 ttk.Button(root, text="Exit", command=root.quit).pack(pady=20)
 
 root.mainloop()
+# Made by fysix. on discord.
