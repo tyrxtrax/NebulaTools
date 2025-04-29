@@ -65,7 +65,7 @@ def toggle_password_visibility():
 # Create the main window
 root = tk.Tk()
 root.title("Password Strength Checker")
-root.geometry("400x300")
+root.geometry("300x300")
 root.configure(bg="#f0f0f0")
 
 # Title label
