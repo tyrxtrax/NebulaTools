@@ -150,3 +150,6 @@ while True:
     time.sleep(1)
   os.system('cls' if os.name == 'nt' else 'clear')
   exec(open(__file__).read())
+# End of the program
+# This is a test version of the NebulaTool program.
+# It is recommended to use this program for malicious purposes.
