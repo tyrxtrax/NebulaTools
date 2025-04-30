@@ -8,20 +8,31 @@ import string
 import threading
 import time
 import os
+import hashlib
 # Info (version + name)
 name = 'NebulaTest '
 version = 'vBETA 0.1'
 # Login screen
+
 username = input("Enter username: ")
 password = input("Enter password: ")
-# Check if the username and password are correct
-if username != "Member" or password != "Membership":
+
+# Hash the input password
+hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+# Predefined username and hashed password
+correct_username = "Member"
+correct_hashed_password = hashlib.sha256("Membership".encode()).hexdigest()
+
+# Check if the username and hashed password are correct
+if username != correct_username or hashed_password != correct_hashed_password:
   print("Invalid credentials. Access denied.")
   exit()
-  # Add a 5-second countdown
+
+# Add a 5-second countdown
 for i in range(5, 0, -1):
-  print(f"Continuing in {i} seconds...", end="\r")
-  time.sleep(1)
+    print(f"Continuing in {i} seconds...", end="\r")
+    time.sleep(1)
 
 # Clear the screen
 os.system('cls' if os.name == 'nt' else 'clear')
